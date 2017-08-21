@@ -32,8 +32,8 @@ revij, dobiti DOI člankov in podatke iz ISBN ter lepo oblikuje datoteko. Na vol
 ## Prevajanje dokumenta
 Ker dokument vsebuje zunanjo literaturo in stvarno kazalo, je potrebno pri TeXWorks izbrati za prevajanje opcijo 
 `pdflatex+bibtex+makeindex`. Za urejanje dokumentov močno priporočam [TeXStudio](http://www.texstudio.org/),
-ki zna autocompletati sklice, citate ipd. Za prevajanje s stvarnim kazalom je potrebno pri
-`Options > Configure TeXStudio > Show Advanced Options > Build > PDF Chain` nastaviti na 
+ki zna autocompletati sklice, citate ipd.  Na voljo je za Windows, Linux in Mac. Za prevajanje s stvarnim 
+kazalom je potrebno `Options > Configure TeXStudio > Show Advanced Options > Build > PDF Chain` nastaviti na 
 `txs:///pdflatex | txs:///bibtex | txs:///makeindex | txs:///pdflatex | txs:///pdflatex | txs:///view-pdf`. 
 (vsebovati mora `makeindex`). Literatura se prevede avtomatsko brez dodatnih nastavitev. 
 
