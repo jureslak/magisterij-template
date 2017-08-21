@@ -8,8 +8,8 @@ Pod napisom "Naslednje ukaze ustrezno popravi" izpolni ime avtorja, mentorja, mo
 naslov dela in leto magistriranja. Ti ukazi se uporabijo v generiranju naslovnice, izjave, povzetka in 
 PDF metapodatkov. Če želite, lahko odkomentirate kazalo slik. Dopolnite program dela in povzetek ter ključne besede. 
 Nato nadaljujte z uvodom. Uporabljajte LaTeXovo sklicevanje, ki ga vedno povežite s prejšnjo besedo z nedeljivim 
-presledkom kot npr. "na sliki~\ref{fig:label} vidimo". Pazite na predolge presledke po pikah za kraticami, kot so 
-"npr., t.i., tj." ipd. Tam uporabite `\ ` ali '~'. Za pisanje enačb uporabljajte `\[ \]`, `equation`, `align` ali
+presledkom kot npr. `na sliki~\ref{fig:label} vidimo`. Pazite na predolge presledke po pikah za kraticami, kot so 
+"npr., t.i., tj." ipd. Tam uporabite `\ ` ali `~`. Za pisanje enačb uporabljajte `\[ \]`, `equation`, `align` ali
 `align*` okolja in ne `eqnarray` ipd.
 
 ## PDF metapodatki
