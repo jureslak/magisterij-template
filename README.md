@@ -1,2 +1,5 @@
-# magisterij-template
-Template za magistrske naloge na FMF
+# Predloga za magisterij
+
+
+
+Jure Slak, 2017
