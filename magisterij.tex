@@ -12,6 +12,7 @@
 \usepackage{makeidx}      % za stvarno kazalo, lahko zakomentiraš, če ne rabiš
 \usepackage{enumerate}    % več možnosti za sezname
 \usepackage{emptypage}    % prazne strani so neoštevilčene, ampak so štete
+\usepackage{units}        % fizikalne enote kot \unit[12]{kg} z polovico nedeljivega presledka, glej primer v kodi
 \makeindex                % za stvarno kazalo, lahko zakomentiraš, če ne rabiš
 % oblika strani
 \usepackage[
@@ -23,7 +24,6 @@
 ]{geometry}
 
 % VEČ ZANIMIVIH PAKETOV
-% \usepackage{units}      % fizikalne enote kot \unit[12]{kg} z polovico nedeljivega presledka
 % \usepackage{array}      % več možnosti za tabele
 % \usepackage[list=true,listformat=simple]{subcaption}  % več kot ena slika na figure, omogoči slika 1a, slika 1b
 % \usepackage[all]{xy}    % diagrami
@@ -132,75 +132,6 @@ FAKULTETA ZA MATEMATIKO IN FIZIKO\\[5mm]
 \noindent{\large Ljubljana, \letnica}
 
 \cleardoublepage
-\pdfbookmark[1]{Izjava o avtorstvu}{izjava} % bookmark v PDF, \pdfbookmark[nivo]{text}{label}
-
-% izjava: po potrebi spremeni v žensko obliko
-\setlength\topsep{0pt}
-\setlength\parskip{0pt}
-\begin{center}
-  \textbf{Univerza v Ljubljani} \\
-  \textbf{Fakulteta za matematiko in fiziko}
-
-  \vfill
-
-  \underline{Izjava o avtorstvu, istovetnosti tiskane in elektronske verzije magistrskega dela in} \\
-  \underline{objavi osebnih podatkov študenta}
-
-  \vfill
-
-  \setlength\topsep{0pt}
-  \setlength\parskip{0pt}
-  \begin{flushleft}
-    Spodaj podpisani študent \imeavtorja{} avtor magistrskega dela (v nadaljevanju: pisnega
-    zaključnega dela študija) z naslovom:
-  \end{flushleft}
-
-  \vfill
-
-  \textbf{\naslovdela}
-
-  \vfill
-
-  IZJAVLJAM
-\end{center}
-
-\begin{enumerate}[1. ]
-  \item \emph{Obkrožite eno od variant a) ali b)}
-  \begin{enumerate}[a)]
-    \item da sem pisno zaključno delo študija izdelal samostojno;
-    \item da je pisno zaključno delo študija rezultat lastnega dela več kandidatov in izpolnjuje
-      pogoje, ki jih Statut UL določa za skupna zaključna dela študija ter je v zahtevanem deležu
-      rezultat mojega samostojnega dela;
-  \end{enumerate}
-  pod mentorstvom IZPOLNI. % dopiši \imementorja v rodilniku
-%   \\ in somentorstvom IZPOLNI. % dopiši \imesomentorja v rodilniku
-  \item da je tiskana oblika pisnega zaključnega dela študija istovetna elektronski obliki
-    pisnega zaključnega dela študija;
-  \item da sem pridobil vsa potrebna dovoljenja za uporabo podatkov in avtorskih del v pisnem
-    zaključnem delu študija in jih v pisnem zaključnem delu študija jasno označil;
-  \item da sem pri pripravi pisnega zaključnega dela študija ravnal v skladu z etičnimi načeli in,
-    kjer je to potrebno, za raziskavo pridobil soglasje etične komisije;
-  \item da soglašam, da se elektronska oblika pisnega zaključnega dela študija uporabi za preverjanje
-    podobnosti vsebine z drugimi deli s programsko  opremo za preverjanje podobnosti
-    vsebine, ki je povezana s študijskim informacijskim sistemom fakultete;
-  \item da na UL neodplačno, neizključno, prostorsko in časovno neomejeno prenašam pravico shranitve
-    avtorskega dela v elektronski obliki, pravico reproduciranja ter pravico dajanja pisnega
-    zaključnega dela študija na voljo javnosti na svetovnem spletu preko Repozitorija UL;
-  \item da dovoljujem objavo svojih osebnih podatkov, ki so navedeni v pisnem zaključnem delu študija
-    in tej izjavi, skupaj z objavo pisnega zaključnega dela študija.
-\end{enumerate}
-
-\vfill
-
-\noindent
-Kraj:  \hfill   Podpis študenta: \phantom{prostor za podpis}
-
-\vfill
-
-\noindent
-Datum:
-
-\cleardoublepage
 
 % zahvala
 \pdfbookmark[1]{Zahvala}{zahvala} %
@@ -222,7 +153,7 @@ Zahvaljujem se \dots
 
 \cleardoublepage
 
-\pdfbookmark[1]{Program dela}{program-dela}
+\addcontentsline{toc}{section}{Program dela} % dodajmo v kazalo
 \section*{Program dela}
 Mentor naj napiše program dela skupaj z osnovno literaturo.
 
@@ -288,10 +219,13 @@ razdelku.
   Naštejmo nekaj primerov:
   \begin{align}
     \omega &= (0, 0, 0, \dots), \label{eq:zero-kompleks} \\
-    \omega &= (1, i, -1, -i, 1, \ldots),  \\
-    \omega &= (0, 1, 2, 3, \ldots). \qedhere  % postavi QED na zadnjo vrstico enačbe
+    \omega &= (1, i, -1, -i, 1, \ldots), \nonumber \\
+    \omega &= (0, 1, 2, 3, \ldots). \nonumber \qedhere  % postavi QED na zadnjo vrstico enačbe
   \end{align}
 \end{proof}
+
+\section{Tehnični napotki za pisanje}
+
 \subsection{Sklicevanje in citiranje}
 Za sklice uporabljamo \verb|\ref|, za sklice na enačbe \verb|\eqref|, za citate \verb|\cite|. Pri
 sklicevanju in citiranju sklicano številko povežemo s prejšnjo besedo z nedeljivim presledkom
@@ -308,17 +242,39 @@ Pri uporabi okrajšav \LaTeX{} za piko vstavi predolg presledek, kot npr. tukaj.
 piko, ki ni konec stavka doda presledek običajne širine z ukazom \verb*|\ |, kot npr.\ tukaj.
 Primerjaj z okrajšavo zgoraj za razliko.
 
+\subsection{Vstavljanje slik}
+Sliko vstavimo v plavajočem okolju \texttt{figure}. Plavajoča okolja \emph{plavajo} po tekstu, in
+jih lahko postavimo na vrh strani z opcijskim parametrom `\texttt{t}', na lokacijo, kjer je v kodi s
+`\texttt{h}', in če to ne deluje, potem pa lahko rečete \LaTeX u, da ga \emph{res} želite tukaj,
+kjer ste napisali, s `\texttt{h!}'. Lepo je da so vstavljene slike vektorske (recimo \texttt{.pdf}
+ali \texttt{.eps} ali \texttt{.svg}) ali pa \texttt{.png} visoke resolucije (več kot
+\unit[300]{dpi}).  Pod vsako sliko je napis in na vsako sliko se skličemo v besedilu. Primer
+vektorske slike je na sliki~\ref{fig:sample}. To, da je vektorska enostavno preverite tako, da močno
+zoomate v sliko, in ostane gladka. Več informacij je na voljo na
+\url{https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{images/sample.pdf}
+  % \caption[caption za v kazalo]{Dolg caption pod sliko}
+  \caption[Primer vektorske slike.]{Primer vektorske slike z oznakami v enaki pisavi, kot jo
+     uporablja \LaTeX{}.  Narejena je s programom Inkscape, \LaTeX{} oznake so importane v
+     Inkscape kot PDF, narejen s pomožno \texttt{.tex} datoteko.}
+  \label{fig:sample}
+\end{figure}
+
 \subsection{Kako narediti stvarno kazalo}
 Dodate ukaze \verb|\index{polje}| na besede, kjer je pojavijo, kot tukaj\index{tukaj}.
 Več o stvarnih kazalih je na voljo na \url{https://en.wikibooks.org/wiki/LaTeX/Indexing}.
 
 \subsection{Navajanje literature}
-Članke citiramo z uporabo \verb|\cite{label}|, \verb|\cite[text]{label}| ali pa več naenkrat z
+Članke citiramo z uporabo \verb|\cite{label}|, \verb|\cite[text]{label}| ali pa več naenkrat s
 \verb|\cite\{label1, label2}|. Tudi tukaj predhodno besedo in citat povežemo z nedeljivim presledkom
 $\sim$. Na primer~\cite{chen2006meshless,liu2001point}, ali pa \cite{kibriya2007empirical}, ali pa
 \cite[str.\ 12]{trobec2015parallel}, \cite[enačba (2.3)]{pereira2016convergence}.
 Vnosi iz \verb|.bib| datoteke, ki niso citirani, se ne prikažejo v seznamu literature, zato jih
-tukaj citiram.~\cite{vene2000categorical}, \cite{gregoric2017stopniceni}, \cite{slak2015induktivni}, \cite{nsphere}, \cite{kearsley1975linearly}.
+tukaj citiram.~\cite{vene2000categorical}, \cite{gregoric2017stopniceni}, \cite{slak2015induktivni},
+\cite{nsphere}, \cite{kearsley1975linearly}.
 
 % Literatura:
 % Primer navajanja na http://www.fmf.uni-lj.si/storage/24240/LiteraturaM.pdf,
@@ -332,12 +288,14 @@ tukaj citiram.~\cite{vene2000categorical}, \cite{gregoric2017stopniceni}, \cite{
 % V primeru napak pišite na jure.slak@gmail.com.
 \cleardoublepage                           % na desni strani
 \phantomsection                            % da prav delujejo hiperlinki
-\addcontentsline{toc}{section}{Literatura} % dodajmo v kazalo
+\addcontentsline{toc}{section}{\bibname}   % dodajmo v kazalo
 \bibliographystyle{fmf-sl}                 % uporabljen stil je v datoteki fmf-sl.bst, na voljo tudi angleška verzija
 \bibliography{literatura}                  % literatura je v datoteki literatura.bib
 
 % Za stvarno kazalo
-\pdfbookmark[1]{\indexname}{stvarno-kazalo}
+\cleardoublepage                           % na desni strani
+\phantomsection                            % da prav delujejo hiperlinki
+\addcontentsline{toc}{section}{\indexname} % dodajmo v kazalo
 \printindex
 
 \end{document}
