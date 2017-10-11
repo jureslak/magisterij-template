@@ -12,6 +12,9 @@
 \usepackage{makeidx}      % za stvarno kazalo, lahko zakomentiraš, če ne rabiš
 \usepackage{enumerate}    % več možnosti za sezname
 \usepackage{emptypage}    % prazne strani so neoštevilčene, ampak so štete
+\usepackage{bibentry}     % za navajanje literature v programu dela s celim imenom
+\nobibliography{literatura}
+\bibliographystyle{fmf-en}
 \makeindex                % za stvarno kazalo, lahko zakomentiraš, če ne rabiš
 % oblika strani
 \usepackage[
@@ -55,12 +58,15 @@
 % Naslednje ukaze ustrezno popravi
 \newcommand{\program}{Matematika} % ime studijskega programa
 \newcommand{\programme}{Mathematics} % ime studijskega programa v anglescini
-\newcommand{\imeavtorja}{Ime Avtorja} % ime avtorja
-\newcommand{\imementorja}{prof.~dr.~Ime Mentorja} % akademski naziv in ime mentorja, uporabi poln naziv, prof.~dr.~
+\newcommand{\imeavtorja}{Marija Novak} % ime avtorja
+\newcommand{\imementorja}{prof.~dr.~Janez Novak}  % akademski naziv in ime mentorja, uporabi poln naziv, prof.~dr.~, doc.~dr., ali izr.~prof.~dr.
+\newcommand{\adviser}{(Assistant/Associative)~Professor~Janez~Novak}% ustrezno popravi: Assistant Professor je docent, Associate Professor je izredni profesor, Professor pa je redni profesor
+
 \newcommand{\imesomentorja}{} % akademski naziv in ime somentorja
 \newcommand{\naslovdela}{Naslov dela}
 \newcommand{\englishtitle}{Title in English}
 \newcommand{\letnica}{2017} %letnica diplome
+\newcommand{\literatura}{literatura}  % pot do datoteke z literaturo (.bib)
 
 % PDF metapodatki
 \hypersetup{pdftitle={\naslovdela}}  % da se pokaže v naslovu pdf okna
@@ -68,6 +74,7 @@
 
 \setlength{\overfullrule}{50pt} % označi predlogo vrstico
 \pagestyle{plain}               % samo številka strani na dnu, nobene glave / noge
+
 
 % ukazi za matematična okolja
 \theoremstyle{definition} % tekst napisan pokončno
@@ -94,6 +101,9 @@
 \newtheorem{question}[definition]{Question}
 
 \numberwithin{equation}{section}  % števec za enačbe zgleda kot 2.7 in se resetira v vsakem poglavju
+
+% citiranje v programu dela
+\newcommand{\plancite}[1]{\item[\cite{#1}] \bibentry{#1}}
 
 % Matematični ukazi
 \newcommand{\R}{\mathbb R}
@@ -156,7 +166,7 @@ FAKULTETA ZA MATEMATIKO IN FIZIKO\\[5mm]
 \noindent{\large
 UNIVERSITY OF LJUBLJANA\\[1mm]
 FACULTY OF MATHEMATICS AND PHYSICS\\[5mm]
-\programme\ -- 2nd~degree}
+\programme\ -- 2nd~cycle}
 % ustrezno dopolni za IŠRM
 \vfill
 
@@ -166,8 +176,8 @@ FACULTY OF MATHEMATICS AND PHYSICS\\[5mm]
   \Large
   \textbf{\MakeUppercase{\englishtitle}}\\[10mm]
   \large
-  Master thesis \\[1cm]
-  Adviser: \imementorja \\[2mm] % ustrezno popravi spol
+  Master's Thesis \\[1cm]
+  Adviser: \adviser \\[2mm] % ustrezno popravi spol
 %   Somentor: \imesomentorja   % dodaj, če potrebno
 \end{center}
 \vfill
@@ -175,7 +185,8 @@ FACULTY OF MATHEMATICS AND PHYSICS\\[5mm]
 \noindent{\large Ljubljana, \letnica}
 
 \cleardoublepage
-% IZJAVI O AVTORSTVU
+
+%% IZJAVA O AVTORSTVU
 % \pdfbookmark[1]{Izjava o avtorstvu}{izjava} % bookmark v PDF, \pdfbookmark[nivo]{text}{label}
 %
 % % izjava: po potrebi spremeni v žensko obliko
@@ -255,7 +266,7 @@ FACULTY OF MATHEMATICS AND PHYSICS\\[5mm]
 %
 %   \vfill
 %
-%   \underline{Declaration of authorship, identity of electronic and printed versions of the }
+%   \underline{Declaration of authorship, identity of electronic and printed versions of the } \\
 %   \underline{master thesis and publication of personal data }
 %
 %   \vfill
@@ -263,8 +274,7 @@ FACULTY OF MATHEMATICS AND PHYSICS\\[5mm]
 %   \setlength\topsep{0pt}
 %   \setlength\parskip{0pt}
 %   \begin{flushleft}
-%     I, the undersigned student \imeavtorja{} the author of master thesis (below the written final
-%     work of studies), entitled:
+%     I, the undersigned student \imeavtorja{} the author of master thesis (below the written final work of studies), entitled:
 %
 %   \end{flushleft}
 %
@@ -281,28 +291,26 @@ FACULTY OF MATHEMATICS AND PHYSICS\\[5mm]
 %   \item \emph{The following (choose a) or b)):}
 %   \begin{enumerate}[a)]
 %     \item The written final work of studies is a result of my independent work.
-%     \item The written final work of studies is a result of own work of more candidates and fulfils
-%       the conditions determined by the Statute of UL for joint final works of studies and is a
-%       result of my independent work in the required share.
+%     \item The written final work of studies is a result of own work of more candidates and fulfils the
+% conditions determined by the Statute of UL for joint final works of studies and is a result of
+% my independent work in the required share.
 %   \end{enumerate}
-%   under supervision of  \imementorja. %po potrebi dodaj somentorja
-%   \item The printed form of the written final work of studies is identical to the electronic form of
-%     the written final work of studies.
-%   \item I have acquired all the necessary permissions for the use of data and copyrighted works in
-%     the written final work of studies and have clearly marked them in the written final work of
-%     studies.
-%   \item I have acted in accordance with ethical principles during the preparation of the written
-%     final work of studies and have, where necessary, obtained agreement of the ethics commission.
-%   \item I give my consent to use of the electronic form of the written final work of studies for the
-%     detection of content similarity with other works, using similarity detection software that is
-%     connected with the study information system of the university member.
-%   \item I transfer to the UL – free of charge, non-exclusively, geographically and time-wise
-%     unlimited – the right of saving the work in the electronic form, the right of reproduction, as
-%     well as the right of making the written final work of studies available to the public on the
-%     world wide web via the Repository of UL.
-%   \item I give my consent to publication of my personal data that are included in the written final
-%     work of studies and in this declaration, together with the publication of the written final work
-%     of studies.
+%   under supervision of  \adviser. %po potrebi dodaj somentorja
+%   \item The printed form of the written final work of studies is identical to the electronic form of the written
+% final work of studies.
+%   \item I have acquired all the necessary permissions for the use of data and copyrighted works in the
+% written final work of studies and have clearly marked them in the written final work of studies.
+%   \item I have acted in accordance with ethical principles during the preparation of the written final work of
+% studies and have, where necessary, obtained agreement of the ethics commission.
+%   \item I give my consent to use of the electronic form of the written final work of studies for the detection
+% of content similarity with other works, using similarity detection software that is connected with the
+% study information system of the university member.
+%   \item I transfer to the UL – free of charge, non-exclusively, geographically and time-wise unlimited – the
+% right of saving the work in the electronic form, the right of reproduction, as well as the right of making
+% the written final work of studies available to the public on the world wide web via the Repository of
+% UL.
+%   \item I give my consent to publication of my personal data that are included in the written final work of
+% studies and in this declaration, together with the publication of the written final work of studies.
 % \end{enumerate}
 %
 % \vfill
@@ -314,9 +322,8 @@ FACULTY OF MATHEMATICS AND PHYSICS\\[5mm]
 %
 % \noindent
 % Date:
-%
 % \cleardoublepage
-%% END IZJAVI O AVTORSTVU
+%% END IZJAVA O AVTORSTVU
 
 % zahvala
 \pdfbookmark[1]{Acknowledgements}{zahvala} %
@@ -341,27 +348,40 @@ I would like to thank\dots
 \phantomsection
 \addcontentsline{toc}{section}{Project plan} % dodajmo v kazalo
 \section*{Program dela}
-Mentor naj napiše program dela skupaj z osnovno literaturo. Literatura mora biti tukaj posebej
-samostojno navedena in ne le citirana.
-
-Osnovna literatura: \cite{lebedev2009introduction}, \cite{gurtin1982introduction},
+Mentor naj napiše program dela skupaj z osnovno literaturo. Na literaturo se
+lahko sklicuje kot~\cite{lebedev2009introduction}, \cite{gurtin1982introduction},
 \cite{zienkiewicz2000finite}.
 
-\section*{Project plan}
-Adviser writes down the plan of the project. The main references need to be
-explicitly written down here and not only cited.
-
-Basic literature: \cite{lebedev2009introduction}, \cite{gurtin1982introduction},
+\section*{Work plan}
+Adviser writes down the plan of the project. He/she can cite the references in the
+following way~\cite{lebedev2009introduction}, \cite{gurtin1982introduction},
 \cite{zienkiewicz2000finite}.
+
+\section*{Osnovna literatura (Basic references)}
+% pot do .bib datoteke, da ve iz katere baze vzemat citate, ampak da ne naredi tukaj seznama literature
+%\nobibliography{literatura}
+%\bibliographystyle{fmf-en}
+Literatura mora biti tukaj posebej samostojno navedena (po pomembnosti) in ne le citirana.  V tem
+razdelku literature ne oštevilčimo po svoje, ampak uporabljamo okolje itemize in ukaz plancite, saj
+je celotna literatura oštevilčena na koncu. (The main references need to be explicitly written down
+here (in the order of importance) and not only cited. In this section we do not enumerate the
+references again, since they are already enumerated in the last section. We use the environment
+itemize and command plancite instead.)
+
+\begin{itemize}
+  \plancite{lebedev2009introduction}
+  \plancite{gurtin1982introduction}
+  \plancite{zienkiewicz2000finite}
+\end{itemize}
 
 \vspace{2cm}
-\hspace*{\fill} Adviser's signature: \phantom{prostor za podpis}
+\hspace*{\fill} Podpis mentorja (adviser): \phantom{prostor za podpis}
 
 % \vspace{2cm}
-% \hspace*{\fill} Co-mentor: \phantom{prostor za podpis}
+% \hspace*{\fill} Podpis somentorja (co adviser): \phantom{prostor za podpis}
 
 \cleardoublepage
-\pdfbookmark[1]{Abstract}{abstract}
+\pdfbookmark[1]{Povzetek}{abstract}
 
 \begin{center}
 \textbf{\naslovdela} \\[3mm]
@@ -391,8 +411,8 @@ the content and not the structure of your work.
 \pagenumbering{arabic}  % in z arabskimi številkami
 
 \section{Introduction}
-Write down a short intorduction, focusing on historical and mathematical aspects. Introduce the
-motivation for the problem and where and how it has been dealt with. At the end wirte down how the
+Write down a short introduction, focusing on historical and mathematical aspects. Introduce the
+motivation for the problem and where and how it has been dealt with. At the end write down how the
 thesis is organised -- what is written in each Section.
 
 Use English environments, the word ``proof'' will be written in English.
@@ -410,14 +430,14 @@ greatest lower bound of $X$.
 We prove this in the following way\dots
 \end{proof}
 
-For detailed instructions, see the part in Slovenian language. When referencing to sections and
+For detailed instructions, see the part in slovenian language. When referencing to sections and
 other items use capital letters, e.g.\ in Figure \dots
 
 \cleardoublepage
 \begin{otherlanguage}{slovene}
 \section{Razširjeni povzetek v slovenščini}
 
-\subsection{Intergrali po \texorpdfstring{$\omega$}{ω}-kompleksih}
+\subsection{Integrali po \texorpdfstring{$\omega$}{ω}-kompleksih}
 \subsection{Definicija}
 \begin{definicija}
   Neskončno zaporedje kompleksnih števil, označeno z $\omega = (\omega_1, \omega_2, \ldots)$,
@@ -455,7 +475,7 @@ Pri uporabi okrajšav \LaTeX{} za piko vstavi predolg presledek, kot npr. tukaj.
 piko, ki ni konec stavka doda presledek običajne širine z ukazom \verb*|\ |, kot npr.\ tukaj.
 Primerjaj z okrajšavo zgoraj za razliko.
 
-\subsubsection{Kako narediti stvarno kazalo}
+\subsection{Kako narediti stvarno kazalo}
 Dodate ukaze \verb|\index{polje}| na besede, kjer je pojavijo, kot tukaj\index{tukaj}.
 Več o stvarnih kazalih je na voljo na \url{https://en.wikibooks.org/wiki/LaTeX/Indexing}.
 
@@ -482,8 +502,8 @@ tukaj citiram.~\cite{vene2000categorical}, \cite{gregoric2017stopniceni}, \cite{
 \cleardoublepage                           % na desni strani
 \phantomsection                            % da prav delujejo hiperlinki
 \addcontentsline{toc}{section}{References} % dodajmo v kazalo
-\bibliographystyle{fmf-en}                 % uporabljen stil je v datoteki fmf-sl.bst, na voljo tudi angleška verzija
-\bibliography{literatura}                  % literatura je v datoteki literatura.bib
+\bibliographystyle{fmf-en}                 % uporabljen stil je v datoteki fmf-en.bst, na voljo tudi slovenska verzija, ce spreminjas popravi tudi na vrstici 17
+\bibliography{\literatura}                 % literatura je v datoteki literatura.bib, ce spreminjas popravi tudi na vrstici 16
 
 % Za stvarno kazalo
 \pdfbookmark[1]{\indexname}{stvarno-kazalo}

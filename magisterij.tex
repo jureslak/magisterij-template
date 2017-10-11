@@ -13,6 +13,9 @@
 \usepackage{enumerate}    % več možnosti za sezname
 \usepackage{emptypage}    % prazne strani so neoštevilčene, ampak so štete
 \usepackage{units}        % fizikalne enote kot \unit[12]{kg} z polovico nedeljivega presledka, glej primer v kodi
+\usepackage{bibentry}     % za navajanje literature v programu dela s celim imenom
+\nobibliography{literatura}
+\bibliographystyle{fmf-sl}
 \makeindex                % za stvarno kazalo, lahko zakomentiraš, če ne rabiš
 % oblika strani
 \usepackage[
@@ -52,8 +55,8 @@
 
 % Naslednje ukaze ustrezno popravi
 \newcommand{\program}{Matematika} % ime studijskega programa
-\newcommand{\imeavtorja}{Ime Avtorja} % ime avtorja
-\newcommand{\imementorja}{prof.~dr.~Ime Mentorja} % akademski naziv in ime mentorja, uporabi poln naziv, prof.~dr.~
+\newcommand{\imeavtorja}{Marija Novak} % ime avtorja
+\newcommand{\imementorja}{prof.~dr.~Janez Novak} % akademski naziv in ime mentorja, uporabi poln naziv, prof.~dr.~, doc.~dr., ali izr.~prof.~dr.
 \newcommand{\imesomentorja}{} % akademski naziv in ime somentorja
 \newcommand{\naslovdela}{Naslov dela}
 \newcommand{\letnica}{2017} %letnica diplome
@@ -79,6 +82,9 @@
 \newtheorem{posledica}[definicija]{Posledica}
 
 \numberwithin{equation}{section}  % števec za enačbe zgleda kot 2.7 in se resetira v vsakem poglavju
+
+% citiranje v programu dela
+\newcommand{\plancite}[1]{\item[\cite{#1}] \bibentry{#1}}
 
 % Matematični ukazi
 \newcommand{\R}{\mathbb R}
@@ -227,10 +233,19 @@ Zahvaljujem se \dots
 
 \section*{Program dela}
 \addcontentsline{toc}{section}{Program dela} % dodajmo v kazalo
-Mentor naj napiše program dela skupaj z osnovno literaturo.
-
-Osnovna literatura: \cite{lebedev2009introduction}, \cite{gurtin1982introduction},
+Mentor naj napiše program dela skupaj z osnovno literaturo. Na literaturo se
+lahko sklicuje kot~\cite{lebedev2009introduction}, \cite{gurtin1982introduction},
 \cite{zienkiewicz2000finite}.
+
+\section*{Osnovna literatura}
+Literatura mora biti tukaj posebej samostojno navedena (po pomembnosti) in ne
+le citirana. V tem razdelku literature ne oštevilčimo po svoje, ampak uporabljamo
+okolje itemize in ukaz plancite, saj je celotna literatura oštevilčena na koncu.
+\begin{itemize}
+  \plancite{lebedev2009introduction}
+  \plancite{gurtin1982introduction}
+  \plancite{zienkiewicz2000finite}
+\end{itemize}
 
 \vspace{2cm}
 \hspace*{\fill} Podpis mentorja: \phantom{prostor za podpis}
@@ -273,7 +288,7 @@ Napišite kratek zgodovinski in matematični uvod.  Pojasnite motivacijo za prob
 nastopa, kje vse je bil obravnavan. Na koncu opišite tudi organizacijo dela -- kaj je v kakšnem
 razdelku.
 
-\section{Intergrali po \texorpdfstring{$\omega$}{ω}-kompleksih}
+\section{Integrali po \texorpdfstring{$\omega$}{ω}-kompleksih}
 \subsection{Definicija}
 \begin{definicija}
   Neskončno zaporedje kompleksnih števil, označeno z $\omega = (\omega_1, \omega_2, \ldots)$,
@@ -361,8 +376,8 @@ tukaj citiram.~\cite{vene2000categorical}, \cite{gregoric2017stopniceni}, \cite{
 \cleardoublepage                           % na desni strani
 \phantomsection                            % da prav delujejo hiperlinki
 \addcontentsline{toc}{section}{\bibname}   % dodajmo v kazalo
-\bibliographystyle{fmf-sl}                 % uporabljen stil je v datoteki fmf-sl.bst, na voljo tudi angleška verzija
-\bibliography{literatura}                  % literatura je v datoteki literatura.bib
+\bibliographystyle{fmf-sl}                 % uporabljen stil je v datoteki fmf-sl.bst, na voljo tudi angleška verzija, ce spreminjas popravi tudi na vrstici 17
+\bibliography{literatura}                  % literatura je v datoteki literatura.bib, ce spreminjas popravi tudi na vrstici 16
 
 % Za stvarno kazalo
 \cleardoublepage                           % na desni strani
