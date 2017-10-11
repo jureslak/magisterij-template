@@ -42,7 +42,7 @@ Uporabljajte urejevalnik, ki preverja črkovanje. V predlogi so napisani ukazi z
 TeXStudio in [vim](http://www.vim.org/). Za preverjanje črkovanja neodvisno od uporabljenega urejevalnika lahko uporabite 
 [aspell](http://aspell.net/).
 
-Hvala Anji Petkovič za angleško verzijo, Maji Klavžar za natančna navodila glede navajanja literature in
+Hvala Anji Petković za angleško verzijo, Maji Klavžar za natančna navodila glede navajanja literature in
 Matjažu Konvalinki za podporo s strani fakultete.
 
 Jure Slak, 2017
