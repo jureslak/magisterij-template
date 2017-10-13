@@ -10,7 +10,8 @@
 \usepackage{graphicx}     % za slike
 \usepackage{url}          % za spletne naslove, na katere lahko kliknemo
 \usepackage{makeidx}      % za stvarno kazalo, lahko zakomentiraš, če ne rabiš
-\usepackage{enumerate}    % več možnosti za sezname
+\usepackage{units}        % fizikalne enote kot \unit[12]{kg} z polovico nedeljivega presledka, glej primer v kodi
+%\usepackage{enumerate}     % več možnosti za sezname
 \usepackage{emptypage}    % prazne strani so neoštevilčene, ampak so štete
 \usepackage{bibentry}     % za navajanje literature v programu dela s celim imenom
 \nobibliography{literatura}
@@ -475,6 +476,26 @@ Pri uporabi okrajšav \LaTeX{} za piko vstavi predolg presledek, kot npr. tukaj.
 piko, ki ni konec stavka doda presledek običajne širine z ukazom \verb*|\ |, kot npr.\ tukaj.
 Primerjaj z okrajšavo zgoraj za razliko.
 
+\subsection{Vstavljanje slik}
+Sliko vstavimo v plavajočem okolju \texttt{figure}. Plavajoča okolja \emph{plavajo} po tekstu, in
+jih lahko postavimo na vrh strani z opcijskim parametrom `\texttt{t}', na lokacijo, kjer je v kodi s
+`\texttt{h}', in če to ne deluje, potem pa lahko rečete \LaTeX u, da ga \emph{res} želite tukaj,
+kjer ste napisali, s `\texttt{h!}'. Lepo je da so vstavljene slike vektorske (recimo \texttt{.pdf}
+ali \texttt{.eps} ali \texttt{.svg}) ali pa \texttt{.png} visoke resolucije (več kot
+\unit[300]{dpi}).  Pod vsako sliko je napis in na vsako sliko se skličemo v besedilu. Primer
+vektorske slike je na sliki~\ref{fig:sample}. To, da je vektorska enostavno preverite tako, da močno
+zoomate v sliko, in ostane gladka. Več informacij je na voljo na
+\url{https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\textwidth]{images/sample.pdf}
+  % \caption[caption za v kazalo]{Dolg caption pod sliko}
+  \caption[Primer vektorske slike.]{Primer vektorske slike z oznakami v enaki pisavi, kot jo
+     uporablja \LaTeX{}.  Narejena je s programom Inkscape, \LaTeX{} oznake so importane v
+     Inkscape kot PDF, narejen s pomožno \texttt{.tex} datoteko.}
+  \label{fig:sample}
+\end{figure}
 \subsection{Kako narediti stvarno kazalo}
 Dodate ukaze \verb|\index{polje}| na besede, kjer je pojavijo, kot tukaj\index{tukaj}.
 Več o stvarnih kazalih je na voljo na \url{https://en.wikibooks.org/wiki/LaTeX/Indexing}.
