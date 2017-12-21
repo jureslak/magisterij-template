@@ -49,7 +49,8 @@
 % ta paket se mora običajno (z nekaj izjemami) naložiti zadnji.
 \usepackage[bookmarks, bookmarksopen, bookmarksdepth=3, colorlinks=true,
   linkcolor=black, anchorcolor=black, citecolor=black, filecolor=black,
-  menucolor=black, runcolor=black, urlcolor=black, pdfencoding=unicode
+  menucolor=black, runcolor=black, urlcolor=black, pdfencoding=unicode,
+  breaklinks=true
 ]{hyperref}
 % \usepackage{doi}   % za clickable DOI entrye v bibliografiji
 
@@ -235,7 +236,7 @@ Zahvaljujem se \dots
 \addcontentsline{toc}{section}{Program dela} % dodajmo v kazalo
 Mentor naj napiše program dela skupaj z osnovno literaturo. Na literaturo se
 lahko sklicuje kot~\cite{lebedev2009introduction}, \cite{gurtin1982introduction},
-\cite{zienkiewicz2000finite}.
+\cite{zienkiewicz2000finite}, \cite{STtemplate}.
 
 \section*{Osnovna literatura}
 Literatura mora biti tukaj posebej samostojno navedena (po pomembnosti) in ne
@@ -245,6 +246,7 @@ okolje itemize in ukaz plancite, saj je celotna literatura oštevilčena na konc
   \plancite{lebedev2009introduction}
   \plancite{gurtin1982introduction}
   \plancite{zienkiewicz2000finite}
+  \plancite{STtemplate}
 \end{itemize}
 
 \vspace{2cm}
@@ -361,7 +363,7 @@ $\sim$. Na primer~\cite{chen2006meshless,liu2001point}, ali pa \cite{kibriya2007
 \cite[str.\ 12]{trobec2015parallel}, \cite[enačba (2.3)]{pereira2016convergence}.
 Vnosi iz \verb|.bib| datoteke, ki niso citirani, se ne prikažejo v seznamu literature, zato jih
 tukaj citiram.~\cite{vene2000categorical}, \cite{gregoric2017stopniceni}, \cite{slak2015induktivni},
-\cite{nsphere}, \cite{kearsley1975linearly}.
+\cite{nsphere}, \cite{kearsley1975linearly}, \cite{STtemplate}.
 
 % Literatura:
 % Primer navajanja na http://www.fmf.uni-lj.si/storage/24240/LiteraturaM.pdf,
