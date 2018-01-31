@@ -48,9 +48,8 @@ TeXStudio in [vim](http://www.vim.org/). Za preverjanje črkovanja neodvisno od 
 [aspell](http://aspell.net/).
 
 ## Pogosta vprašanja
-Za težave in vprašanja glede template-a, prosim odprite
-[nov issue](https://github.com/jureslak/magisterij-template/issues?q=is%3Aissue),
-pred tem pa preglejte že obstoječe, če morda rešijo vašo težavo.
+Za težave in vprašanja glede template-a, prosim odprite nov issue, pred tem pa preglejte 
+[že obstoječe](https://github.com/jureslak/magisterij-template/issues?q=is%3Aissue), če morda rešijo vašo težavo.
 
 ## Zahvale
 Hvala Anji Petković za angleško verzijo, Maji Klavžar za natančna navodila glede navajanja literature in
