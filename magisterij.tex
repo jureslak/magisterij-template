@@ -16,11 +16,12 @@ na Levy-jeve topološke prostore.}  % Opis dela v eni povedi. Ne sme vsebovati m
 \newcommand{\kljucnebesede}{integracija\sep kompleks} % ključne besede, ločene z \sep, da se PDF metapodatki prav procesirajo
 \newcommand{\keywords}{integration\sep complex} % ključne besede v angleščini
 \newcommand{\organization}{Univerza v Ljubljani, Fakulteta za matematiko in fiziko} % fakulteta
+\newcommand{\literatura}{literatura}  % pot do datoteke z literaturo (brez .bib končnice)
 \newcommand{\sep}{, }  % separator med ključnimi besedami v besedilu
 % KONEC PODATKOV
 
 \usepackage{bibentry}         % za navajanje literature v programu dela s celim imenom
-\nobibliography{literatura}
+\nobibliography{\literatura}
 \newcommand{\plancite}[1]{\item[\cite{#1}] \bibentry{#1}} % citiranje v programu dela
 
 \usepackage{filecontents}  % za pisanje datoteke s PDF metapodatki
@@ -332,7 +333,7 @@ $\sim$, kot npr.\ \verb|iz trditve~\ref{trd:obstoj-omega} vidimo|.
 \begin{primer}
   Zaporedje~\eqref{eq:zero-kompleks} iz dokaza trditve~\ref{trd:obstoj-omega} na
   strani~\pageref{trd:obstoj-omega} lahko najdemo tudi v Spletni enciklopediji zaporedij~\cite{oeis}.
-  Citirano lahko tudi bolj natančno~\cite[trditev 2.1, str.\ 23]{lebedev2009introduction}.
+  Citiramo lahko tudi bolj natančno~\cite[trditev 2.1, str.\ 23]{lebedev2009introduction}.
 \end{primer}
 
 \subsection{Okrajšave}
@@ -397,7 +398,7 @@ tukaj citiram.~\cite{vene2000categorical}, \cite{gregoric2017stopniceni}, \cite{
 \phantomsection                            % da prav delujejo hiperlinki
 \addcontentsline{toc}{section}{\bibname}   % dodajmo v kazalo
 \bibliographystyle{fmf-sl}                 % uporabljen stil je v datoteki fmf-sl.bst, na voljo tudi angleška verzija
-\bibliography{literatura}                  % literatura je v datoteki literatura.bib, ce spreminjas popravi tudi na vrstici 22
+\bibliography{\literatura}                 % literatura je v datoteki, definirani na začetku
 
 % Za stvarno kazalo
 \cleardoublepage                           % na desni strani
