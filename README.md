@@ -1,6 +1,8 @@
 # Predloga za magisterij
 
-Prenesite si [template.zip](template.zip), odzipajte in začnite pisati. Lahko prenesete tudi
+To je primer predloge za magisterij, ki ustreza
+[navodilom za pisanje magisterija](https://www.fmf.uni-lj.si/si/knjiznica-matematicna/navodila-bol-mag/).
+Prenesite si [template.zip](template.zip), odzipajte, izpolnite in začnite pisati. Lahko prenesete tudi
 [angleško verzijo](template_english.zip).
 
 ## Uporaba predloge
@@ -47,8 +49,25 @@ Uporabljajte urejevalnik, ki preverja črkovanje. V predlogi so napisani ukazi z
 TeXStudio in [vim](http://www.vim.org/). Za preverjanje črkovanja neodvisno od uporabljenega urejevalnika lahko uporabite
 [aspell](http://aspell.net/).
 
+## PDF/A-1b format
+Knjižnica zahteva shranjevanje PDF datotek magisterijev in diplom v PDF/A-1b formatu, primernem za
+arhiviranje. Ta format je bolj restriktiven od običajnega in med drugim zahteva obstoj PDF
+metapodatkov, vse uporabljene pisave morajo biti vdelane v dokument in slike ne smejo vsebovati
+prosojnih elementov. PDF, generiran s to predlogo, naj bi že ustrezal standardu PDF/A-1b, če
+niste vključili slik s prosojnostjo. Na začetku dokumenta se zgenerira datoteka z metapodatki
+(`magisterij.xmpdata`), ki jo pri izdelavi dokumenta uporabi paket `\usepackage[a-1b]{pdfx}`.
+Vaš PDF na koncu vseeno preverite z uporabo kakšnega validatorja, npr.
+[https://www.pdf-online.com/osa/validate.aspx](https://www.pdf-online.com/osa/validate.aspx).
+Napaki `The value of the key SMask is an image but must be None.` ali `The key S has a value
+Transparency which is prohibited.` pomenita, da imate vključeno kakšno prosojno sliko. Za rastrske
+slike je ponavadi dovolj, da vso prosojno barvo spremenite v belo, z uporabo primernega programa.
+Za slike v vektorskih formatih je potrebno ponavadi nastaviti ozadje, za `.pdf` format lahko na
+primer kar uredite datoteko in zamenjate `/Transparency` pri polju `/S` z `/GTS_PDFA1`.
+V najslabšem primeru lahko PDF pretvorite v PDF/A-1b format tudi z uporabo kakšnega drugega programa
+ali online orodja ali pa to naredite v matematični knjižnici.
+
 ## Pogosta vprašanja
-Za težave in vprašanja glede template-a, prosim odprite nov issue, pred tem pa preglejte 
+Za težave in vprašanja glede template-a, prosim odprite nov issue, pred tem pa preglejte
 [že obstoječe](https://github.com/jureslak/magisterij-template/issues?q=is%3Aissue), če morda rešijo vašo težavo.
 
 ## Zahvale

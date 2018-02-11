@@ -10,6 +10,8 @@
 *.fot
 *.cb
 *.cb2
+*.xmpdata
+*.xmpi
 
 ## Intermediate documents:
 *.dvi
@@ -220,3 +222,6 @@ TSWLatexianTemp*
 *-tags.tex
 
 *.bak
+
+# Jure
+pdfa1b/

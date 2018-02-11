@@ -2,20 +2,52 @@
 % vim: set spell spelllang=sl:
 % za preverjanje črkovanja, če se uporablja Texstudio ali vim
 \documentclass[12pt,a4paper,twoside]{article}
-\usepackage[slovene]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath,amssymb,amsfonts,amsthm}
-\usepackage[dvipsnames,usenames]{color}
+\usepackage[utf8]{inputenc}  % pravilno razpoznavanje unicode znakov
+
+% NASLEDNJE UKAZE USTREZNO POPRAVI
+\newcommand{\program}{Matematika} % ime studijskega programa
+\newcommand{\imeavtorja}{Marija Novak} % ime avtorja
+\newcommand{\imementorja}{prof.~dr.~Janez Novak} % akademski naziv in ime mentorja, uporabi poln naziv, prof.~dr.~, doc.~dr., ali izr.~prof.~dr.
+\newcommand{\imesomentorja}{} % akademski naziv in ime somentorja, če ga imate
+\newcommand{\naslovdela}{Naslov vašega dela}
+\newcommand{\letnica}{2017} % letnica magistriranja
+\newcommand{\opis}{Delo obravnava integracijo po ω-kompleksih, njene lastnosti in posplošitve
+na Levy-jeve topološke prostore.}  % Opis dela v eni povedi. Ne sme vsebovati matematičnih simbolov v $ $.
+\newcommand{\kljucnebesede}{integracija\sep kompleks} % ključne besede, ločene z \sep, da se PDF metapodatki prav procesirajo
+\newcommand{\keywords}{integration\sep complex} % ključne besede v angleščini
+\newcommand{\organization}{Univerza v Ljubljani, Fakulteta za matematiko in fiziko} % fakulteta
+\newcommand{\sep}{, }  % separator med ključnimi besedami v besedilu
+% KONEC PODATKOV
+
+\usepackage{bibentry}         % za navajanje literature v programu dela s celim imenom
+\nobibliography{literatura}
+\newcommand{\plancite}[1]{\item[\cite{#1}] \bibentry{#1}} % citiranje v programu dela
+
+\usepackage{filecontents}  % za pisanje datoteke s PDF metapodatki
+\usepackage{silence} \WarningFilter{latex}{Overwriting file}  % odstrani annoying warning o obstoju datoteke
+% datoteka s PDF metapodatki, zgenerira se kot magisterij.xmpdata
+\begin{filecontents*}{\jobname.xmpdata}
+  \Title{\naslovdela}
+  \Author{\imeavtorja}
+  \Keywords{\kljucnebesede}
+  \Subject{\opis}
+  \Org{\organization}
+\end{filecontents*}
+
+\usepackage[a-1b]{pdfx}  % zgenerira PDF v tem PDF/A-1b formatu, kot zahteva knjižnica
+\hypersetup{bookmarksopen, bookmarksdepth=3, colorlinks=true,
+  linkcolor=black, anchorcolor=black, citecolor=black, filecolor=black,
+  menucolor=black, runcolor=black, urlcolor=black, pdfencoding=auto,
+  breaklinks=true, psdextra}
+
+\usepackage[slovene]{babel}  % slovenščina
+\usepackage[T1]{fontenc}     % naprednejše kodiranje fonta
+\usepackage{amsmath,amssymb,amsfonts,amsthm} % matematični paketi
+\usepackage[dvipsnames,usenames]{color} % barve
 \usepackage{graphicx}     % za slike
-\usepackage{url}          % za spletne naslove, na katere lahko kliknemo
-\usepackage{makeidx}      % za stvarno kazalo, lahko zakomentiraš, če ne rabiš
-%\usepackage{enumerate}     % več možnosti za sezname
 \usepackage{emptypage}    % prazne strani so neoštevilčene, ampak so štete
 \usepackage{units}        % fizikalne enote kot \unit[12]{kg} z polovico nedeljivega presledka, glej primer v kodi
-\usepackage{bibentry}     % za navajanje literature v programu dela s celim imenom
-\nobibliography{literatura}
-\bibliographystyle{fmf-sl}
+\usepackage{makeidx}      % za stvarno kazalo, lahko zakomentiraš, če ne rabiš
 \makeindex                % za stvarno kazalo, lahko zakomentiraš, če ne rabiš
 % oblika strani
 \usepackage[
@@ -30,6 +62,8 @@
 % \usepackage{array}      % več možnosti za tabele
 % \usepackage[list=true,listformat=simple]{subcaption}  % več kot ena slika na figure, omogoči slika 1a, slika 1b
 % \usepackage[all]{xy}    % diagrami
+% \usepackage{doi}        % za clickable DOI entrye v bibliografiji
+% \usepackage{enumerate}     % več možnosti za sezname
 
 % Za barvanje source kode
 % \usepackage{minted}
@@ -43,28 +77,6 @@
 
 % DRUGI TVOJI PAKETI:
 % tukaj
-
-% za to da se lahko v PDF kliknemo na referenco ali citat in nas ponese tja. Reference ne zgledajo
-% nič drugačne, ampak delujejo pa vseeno. Naredi tudi PDF bookmarke z naslovi poglavij.
-% ta paket se mora običajno (z nekaj izjemami) naložiti zadnji.
-\usepackage[bookmarks, bookmarksopen, bookmarksdepth=3, colorlinks=true,
-  linkcolor=black, anchorcolor=black, citecolor=black, filecolor=black,
-  menucolor=black, runcolor=black, urlcolor=black, pdfencoding=unicode,
-  breaklinks=true
-]{hyperref}
-% \usepackage{doi}   % za clickable DOI entrye v bibliografiji
-
-% Naslednje ukaze ustrezno popravi
-\newcommand{\program}{Matematika} % ime studijskega programa
-\newcommand{\imeavtorja}{Marija Novak} % ime avtorja
-\newcommand{\imementorja}{prof.~dr.~Janez Novak} % akademski naziv in ime mentorja, uporabi poln naziv, prof.~dr.~, doc.~dr., ali izr.~prof.~dr.
-\newcommand{\imesomentorja}{} % akademski naziv in ime somentorja
-\newcommand{\naslovdela}{Naslov dela}
-\newcommand{\letnica}{2017} %letnica diplome
-
-% PDF metapodatki
-\hypersetup{pdftitle={\naslovdela}}  % da se pokaže v naslovu pdf okna
-\hypersetup{pdfauthor={\imeavtorja}} % da se pokaže v pdf metapodatkih
 
 \setlength{\overfullrule}{50pt} % označi predlogo vrstico
 \pagestyle{plain}               % samo številka strani na dnu, nobene glave / noge
@@ -82,10 +94,7 @@
 \newtheorem{trditev}[definicija]{Trditev}
 \newtheorem{posledica}[definicija]{Posledica}
 
-\numberwithin{equation}{section}  % števec za enačbe zgleda kot 2.7 in se resetira v vsakem poglavju
-
-% citiranje v programu dela
-\newcommand{\plancite}[1]{\item[\cite{#1}] \bibentry{#1}}
+\numberwithin{equation}{section}  % števec za enačbe zgleda kot (2.7) in se resetira v vsakem poglavju
 
 % Matematični ukazi
 \newcommand{\R}{\mathbb R}
@@ -108,9 +117,9 @@
 % \let\oldsection\section
 % \def\section{\cleardoublepage\oldsection}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%           DOCUMENT           %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%           DOCUMENT           %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
@@ -217,7 +226,7 @@ FAKULTETA ZA MATEMATIKO IN FIZIKO\\[5mm]
 \section*{Zahvala}
 Neobvezno.
 Zahvaljujem se \dots
-% end zahvala -- izbriši to vmes, če ne rabiš
+% end zahvala -- izbriši vse med zahvala in end zahvala, če je ne rabiš
 
 \cleardoublepage
 
@@ -277,8 +286,8 @@ the content and not the structure of your work.
 \vfill\noindent
 \textbf{Math.~Subj.~Class.~(2010):} oznake kot 74B05, 65N99, na voljo so na naslovu
 \url{http://www.ams.org/msc/msc2010.html?t=65Mxx} \\[1mm]
-\textbf{Ključne besede:} nekaj ključnih pojmov \\[1mm]
-\textbf{Keywords:} some key concepts
+\textbf{Ključne besede:} \kljucnebesede \\[1mm]
+\textbf{Keywords:} \keywords
 
 \cleardoublepage
 
@@ -323,7 +332,7 @@ $\sim$, kot npr.\ \verb|iz trditve~\ref{trd:obstoj-omega} vidimo|.
 \begin{primer}
   Zaporedje~\eqref{eq:zero-kompleks} iz dokaza trditve~\ref{trd:obstoj-omega} na
   strani~\pageref{trd:obstoj-omega} lahko najdemo tudi v Spletni enciklopediji zaporedij~\cite{oeis}.
-  Citirano lahko tudi bolj natačno~\cite[trditev 2.1, str.\ 23]{lebedev2009introduction}.
+  Citirano lahko tudi bolj natančno~\cite[trditev 2.1, str.\ 23]{lebedev2009introduction}.
 \end{primer}
 
 \subsection{Okrajšave}
@@ -338,18 +347,27 @@ jih lahko postavimo na vrh strani z opcijskim parametrom `\texttt{t}', na lokaci
 kjer ste napisali, s `\texttt{h!}'. Lepo je da so vstavljene slike vektorske (recimo \texttt{.pdf}
 ali \texttt{.eps} ali \texttt{.svg}) ali pa \texttt{.png} visoke resolucije (več kot
 \unit[300]{dpi}).  Pod vsako sliko je napis in na vsako sliko se skličemo v besedilu. Primer
-vektorske slike je na sliki~\ref{fig:sample}. To, da je vektorska enostavno preverite tako, da močno
-zoomate v sliko, in ostane gladka. Več informacij je na voljo na
-\url{https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions}
+vektorske slike je na sliki~\ref{fig:sample}. Vektorsko sliko prepoznate tako, da močno
+zoomate v sliko, in še vedno ostane gladka. Več informacij je na voljo na
+\url{https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions}. Če so slike bitne, kot na
+primer slika~\ref{fig:image}, poskrbite, da so v dovolj visoki resoluciji.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.6\textwidth]{images/sample.pdf}
-  % \caption[caption za v kazalo]{Dolg caption pod sliko}
+% \caption[caption za v kazalo]{Dolg caption pod sliko}
   \caption[Primer vektorske slike.]{Primer vektorske slike z oznakami v enaki pisavi, kot jo
      uporablja \LaTeX{}.  Narejena je s programom Inkscape, \LaTeX{} oznake so importane v
-     Inkscape kot PDF, narejen s pomožno \texttt{.tex} datoteko.}
+     Inkscape iz pomožnega PDF.}
   \label{fig:sample}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/image.png}
+  \caption[Primer bitne slike.]{Primer bitne slike, izvožene iz Matlaba. Poskrbite, da so slike v
+  dovolj visoki resoluciji in da ne vsebujejo prosojnih elementov (to zahteva PDF/A-1b format).}
+  \label{fig:image}
 \end{figure}
 
 \subsection{Kako narediti stvarno kazalo}
@@ -374,12 +392,12 @@ tukaj citiram.~\cite{vene2000categorical}, \cite{gregoric2017stopniceni}, \cite{
 % Za urejanje literature avtor priporoča program Jabref, ki zna tudi avtomatsko
 % okrajšati imena revij. Za pravilno sortiranje vnosov brez avtorja, uporabite
 % polje key={ }, kot v primeru.
-% V primeru napak pišite na jure.slak@gmail.com.
+% V primeru napak ustvarite issue na GitHubu ali pišite na jure.slak@fmf.uni-lj.si.
 \cleardoublepage                           % na desni strani
 \phantomsection                            % da prav delujejo hiperlinki
 \addcontentsline{toc}{section}{\bibname}   % dodajmo v kazalo
-\bibliographystyle{fmf-sl}                 % uporabljen stil je v datoteki fmf-sl.bst, na voljo tudi angleška verzija, ce spreminjas popravi tudi na vrstici 17
-\bibliography{literatura}                  % literatura je v datoteki literatura.bib, ce spreminjas popravi tudi na vrstici 16
+\bibliographystyle{fmf-sl}                 % uporabljen stil je v datoteki fmf-sl.bst, na voljo tudi angleška verzija
+\bibliography{literatura}                  % literatura je v datoteki literatura.bib, ce spreminjas popravi tudi na vrstici 22
 
 % Za stvarno kazalo
 \cleardoublepage                           % na desni strani
