@@ -1,3 +1,9 @@
+# Warning
+
+> :warning: **The template has been moved to
+> [https://github.com/ul-fmf/fmfdelo/](https://github.com/ul-fmf/fmfdelo/).
+
+
 # Predloga za magisterij
 
 To je primer predloge za magisterij, ki ustreza
