@@ -1,8 +1,12 @@
 # Warning
 
-> :warning: **The template has been moved to
-> [https://github.com/ul-fmf/fmfdelo/](https://github.com/ul-fmf/fmfdelo/).
+> :warning: The template has been moved to
+> [https://github.com/ul-fmf/fmfdelo/](https://github.com/ul-fmf/fmfdelo/). Head over there and download the newest version.
 
+> :warning: Predloga je bila premaknjena na 
+> [https://github.com/ul-fmf/fmfdelo/](https://github.com/ul-fmf/fmfdelo/). Prosim, da predlogo prenesete od tam.
+
+-----------------------------------------------------------------------------------------------------------------------------------
 
 # Predloga za magisterij
 
